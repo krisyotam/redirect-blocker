@@ -1,0 +1,11 @@
+{
+  "name": "redirect-blocker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A privacy-first Chrome extension that blocks unwanted redirects and keeps a local audit trail.",
+  "scripts": {
+    "check": "node --check background.js && node --check content.js && node --check page-bridge.js && node --check popup.js && node --check options.js",
+    "test": "node --test"
+  }
+}

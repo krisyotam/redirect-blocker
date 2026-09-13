@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Redirect Blocker</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <header>
+      <img src="icons/icon-48.png" alt="">
+      <div><strong>Redirect Blocker</strong><span id="status">Loading…</span></div>
+      <label class="switch" title="Enable Redirect Blocker">
+        <input id="enabled" type="checkbox"><span></span>
+      </label>
+    </header>
+
+    <main>
+      <section class="site-card">
+        <div>
+          <span class="eyebrow">CURRENT SITE</span>
+          <strong id="site">Unavailable</strong>
+        </div>
+        <button id="protect" type="button" disabled>Protect site</button>
+      </section>
+
+      <section>
+        <div class="section-title"><strong>Recent blocked redirects</strong><span id="count">0 total</span></div>
+        <div id="history" class="history"><p class="empty">No blocked redirects yet.</p></div>
+      </section>
+    </main>
+
+    <footer>
+      <button id="dashboard" class="primary" type="button">Open history &amp; blocklist</button>
+    </footer>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

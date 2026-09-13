@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Redirect Blocker — History & Settings</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <aside>
+      <div class="brand"><img src="icons/icon-48.png" alt=""><span>Redirect<br>Blocker</span></div>
+      <nav>
+        <a href="#history">Redirect history</a>
+        <a href="#blocklist">Blocklist</a>
+        <a href="#sites">Protected sites</a>
+        <a href="#settings">Settings</a>
+      </nav>
+      <p>Everything stays on this device.</p>
+    </aside>
+
+    <main>
+      <header>
+        <div><span class="eyebrow">LOCAL SECURITY LOG</span><h1>Redirect history</h1></div>
+        <label class="master"><input id="enabled" type="checkbox"><span>Protection enabled</span></label>
+      </header>
+
+      <section class="stats" aria-label="Statistics">
+        <div><span>Blocked attempts</span><strong id="total">0</strong></div>
+        <div><span>Unique destinations</span><strong id="unique">0</strong></div>
+        <div><span>Protected sites</span><strong id="protectedCount">0</strong></div>
+      </section>
+
+      <section id="history" class="panel">
+        <div class="panel-head">
+          <div><h2>Blocked destinations</h2><p>Review where pages tried to send you.</p></div>
+          <div class="actions">
+            <button id="exportJson" type="button">Export JSON</button>
+            <button id="exportCsv" type="button">Export CSV</button>
+            <button id="exportTxt" type="button">Export URLs</button>
+          </div>
+        </div>
+        <div class="toolbar">
+          <input id="search" type="search" placeholder="Search source, destination, or reason…">
+          <select id="kind"><option value="">All types</option></select>
+          <button id="blockShown" type="button">Block all shown domains</button>
+          <button id="clear" class="danger" type="button">Clear history</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>When</th><th>From</th><th>Blocked destination</th><th>Type</th><th></th></tr></thead>
+            <tbody id="rows"></tbody>
+          </table>
+          <p id="empty" class="empty">No redirect attempts match this view.</p>
+        </div>
+      </section>
+
+      <section id="blocklist" class="panel two-column">
+        <div><h2>Domain blocklist</h2><p>One domain per line. Subdomains are included automatically.</p></div>
+        <div><textarea id="blocklistInput" rows="8" spellcheck="false" placeholder="ads.example.com"></textarea><button id="saveBlocklist" class="primary" type="button">Save blocklist</button></div>
+      </section>
+
+      <section id="sites" class="panel two-column">
+        <div><h2>Protected sites</h2><p>Cross-origin popups are blocked only when opened by these sites.</p></div>
+        <div><textarea id="sitesInput" rows="7" spellcheck="false" placeholder="example.com"></textarea><button id="saveSites" class="primary" type="button">Save protected sites</button></div>
+      </section>
+
+      <section id="settings" class="panel settings">
+        <div><h2>Settings</h2><p>Tune protection and local retention.</p></div>
+        <label><input id="popupBlocking" type="checkbox"><span><strong>Block cross-origin popups</strong><small>On protected sites, stop new tabs and windows aimed at other domains.</small></span></label>
+        <label><span><strong>Maximum history entries</strong><small>Oldest entries are removed automatically.</small></span><input id="maxHistory" type="number" min="50" max="5000" step="50"></label>
+        <div class="save-row"><span id="saved" role="status"></span><button id="saveSettings" class="primary" type="button">Save settings</button></div>
+      </section>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>
